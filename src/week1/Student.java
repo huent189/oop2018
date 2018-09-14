@@ -1,30 +1,15 @@
 package week1;
 
 public class Student {
+
+    // TODO: khai báo các thuộc tính cho Student
+
+    // TODO: khai báo các phương thức getter, setter cho Student
     private String name;
     private String id;
     private String group;
     private String email;
 
-    public Student(){
-        name = "Student";
-        id ="000";
-        group = "INT22041";
-        email = "uet@vnu.edu.vn";
-    }
-
-    public Student(String name, String id, String email) {
-        this.name = name;
-        this.id = id;
-        this.email = email;
-        group = "INT22041";
-    }
-    public Student(Student s){
-        name = s.name;
-        email = s.email;
-        group = s.group;
-        id = s.id;
-    }
     public String getName() {
         return name;
     }
@@ -57,7 +42,45 @@ public class Student {
         this.email = email;
     }
 
-    public void getInfo(){
+    /**
+     * Constructor 1
+     */
+    Student() {
+        // TODO:
+        name = "Student";
+        id ="000";
+        group = "INT22041";
+        email = "uet@vnu.edu.vn";
+    }
+
+    /**
+     * Constructor 2
+     * @param n
+     * @param sid
+     * @param em
+     */
+    Student(String n, String sid, String em) {
+        // TODO:
+        name = n;
+        id = sid;
+        email = em;
+        group = "INT22041";
+    }
+
+    /**
+     * Constructor 3
+     * @param s
+     */
+    Student(Student s) {
+        // TODO:
+        name = s.name;
+        email = s.email;
+        group = s.group;
+        id = s.id;
+    }
+
+    void getInfo() {
+        // TODO:
         String info = "Ten: " + name + "\nMSSV: " + id + "\nLop: " + group + "\nEmail: " + email;
         System.out.println(info);
     }
