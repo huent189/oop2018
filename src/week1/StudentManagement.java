@@ -1,23 +1,94 @@
 package week1;
 
 public class StudentManagement {
-
-    // TODO: khai báo thuộc tính students là array chứa các đối tượng thuộc lớp Student (max. 100)
-
-    public boolean sameGroup(Student s1, Student s2) {
-        // TODO:
-        return false; // xóa dòng này sau khi cài đặt
+    private static final int MAX_STUDENT = 100;
+    private Student[] students;
+    private int numberStudent;
+    public StudentManagement(){
+        students = new Student[MAX_STUDENT];
+        numberStudent = 0;
     }
 
-    void studentsByGroup() {
-        // TODO:
+    public boolean sameGroup(Student s1, Student s2){
+        return (s1.getGroup().equals(s2.getGroup()));
     }
 
-    void removeStudent(String id) {
-        // TODO:
+    public void add(Student s){
+        students[numberStudent] = s;
+        numberStudent++;
     }
 
-    public static void main(String[] args) {
-        // TODO:
+    public void sortByGroup(){
+        for (int i = numberStudent - 1; i >0; i-- ){
+            for (int j = 0; j < i; j++){
+                if(students[j].getGroup().compareTo(students[j + 1].getGroup()) > 0){
+                    Student temp = students[j];
+                    students[j] = students[j + 1];
+                    students[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public void listAllStudents(){
+        for (int i = 0; i < numberStudent; i++){
+            students[i].getInfo();
+        }
+    }
+
+    public void studentsByGroup(){
+        sortByGroup();
+        listAllStudents();
+    }
+
+    public void removeStudent(String id){
+        for (int i = 0; i < numberStudent; i++){
+            if(students[i].getId().equals(id)){
+                for (int j = i + 1; j < numberStudent; j++ ){
+                    students[j - 1] = students[j];
+                }
+                numberStudent--;
+                i--;
+            }
+        }
+    }
+
+    public static void main(String arg[]){
+        StudentManagement studentManager = new StudentManagement();
+        //Test b6
+        Student myStudent = new Student();
+        myStudent.setName("Nguyen Thi Hue");
+        myStudent.setId("17021156");
+        myStudent.setEmail("hueahgase189@gmail.com");
+        myStudent.setGroup("K62-J");
+        System.out.println(myStudent.getName());
+        myStudent.getInfo();
+        //b8 - test constructor
+        System.out.println();
+        Student studentNoParam = new Student();
+        studentNoParam.getInfo();
+
+        Student studentDefaultGroup = new Student("Hue", "1702", "hue@uet.edu");
+        studentDefaultGroup.getInfo();
+
+        Student studentClone = new Student(myStudent);
+        studentClone.getInfo();
+        //b9 - test same group
+        System.out.println();
+        System.out.println(studentManager.sameGroup(studentNoParam, studentDefaultGroup));
+        System.out.println(studentManager.sameGroup(myStudent, studentNoParam));
+
+        studentManager.add(myStudent);
+        studentManager.add(studentNoParam);
+        studentManager.add(studentDefaultGroup);
+        studentManager.add(studentClone);
+        //check b12
+        System.out.println();
+        studentManager.studentsByGroup();
+        //check b13
+        System.out.println();
+        studentManager.removeStudent(myStudent.getId());
+        studentManager.listAllStudents();
     }
 }
+
