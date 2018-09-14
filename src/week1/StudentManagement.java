@@ -38,7 +38,12 @@ public class StudentManagement {
 
     public void studentsByGroup(){
         sortByGroup();
-        listAllStudents();
+        for (int i = 0; i < numberStudent; i++){
+            if(i == 0 || (students[i].getGroup().compareTo(students[i - 1].getGroup()) != 0)){
+                System.out.println("---Lop " +students[i].getGroup() + "---");
+            }
+            students[i].getInfo();
+        }
     }
 
     public void removeStudent(String id){
@@ -64,7 +69,7 @@ public class StudentManagement {
         System.out.println(myStudent.getName());
         myStudent.getInfo();
         //b8 - test constructor
-        System.out.println();
+        System.out.println("***check bai 8***");
         Student studentNoParam = new Student();
         studentNoParam.getInfo();
 
@@ -74,7 +79,7 @@ public class StudentManagement {
         Student studentClone = new Student(myStudent);
         studentClone.getInfo();
         //b9 - test same group
-        System.out.println();
+        System.out.println("***check bai 9***");
         System.out.println(studentManager.sameGroup(studentNoParam, studentDefaultGroup));
         System.out.println(studentManager.sameGroup(myStudent, studentNoParam));
 
@@ -83,10 +88,10 @@ public class StudentManagement {
         studentManager.add(studentDefaultGroup);
         studentManager.add(studentClone);
         //check b12
-        System.out.println();
+        System.out.println("***check bai 12***");
         studentManager.studentsByGroup();
         //check b13
-        System.out.println();
+        System.out.println("***check bai 13***");
         studentManager.removeStudent(myStudent.getId());
         studentManager.listAllStudents();
     }
