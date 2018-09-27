@@ -3,12 +3,12 @@ package week1;
 public class Student {
 
     // TODO: khai báo các thuộc tính cho Student
-
-    // TODO: khai báo các phương thức getter, setter cho Student
     private String name;
     private String id;
     private String group;
     private String email;
+
+    // TODO: khai báo các phương thức getter, setter cho Student
 
     public String getName() {
         return name;

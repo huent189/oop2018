@@ -1,9 +1,5 @@
 package week1;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 public class StudentManagement {
 
     // TODO: khai báo thuộc tính students là array chứa các đối tượng thuộc lớp Student (max. 100)
@@ -29,23 +25,20 @@ public class StudentManagement {
 
     void studentsByGroup() {
         // TODO:
-        HashMap<String, ArrayList<Student>> studentMapByGroup = new HashMap<>();
-        for (int i = 0; i < numberStudent; i++){
-            ArrayList<Student> studentList = studentMapByGroup.get(students[i].getGroup());
-            if(studentList == null){
-                studentList = new ArrayList<Student>();
-                studentList.add(students[i]);
-                studentMapByGroup.put(students[i].getGroup(), studentList);
-            }
-            else {
-                studentList.add(students[i]);
+        for (int i = numberStudent - 1; i >0; i-- ){
+            for (int j = 0; j < i; j++){
+                if(students[j].getGroup().compareTo(students[j + 1].getGroup()) > 0){
+                    Student temp = students[j];
+                    students[j] = students[j + 1];
+                    students[j + 1] = temp;
+                }
             }
         }
-        for (String groupname: studentMapByGroup.keySet()) {
-            System.out.println("---" + groupname + "---");
-            for (Student s: studentMapByGroup.get(groupname)) {
-                System.out.println(s.getId() + "\t" + s.getName());
+        for (int i = 0; i < numberStudent; i++){
+            if(i == 0 || students[i].getGroup().compareTo(students[i - 1].getGroup()) != 0){
+                System.out.println("---" + students[i].getGroup() + "---");
             }
+            System.out.println(students[i].getId() + "\t" + students[i].getName());
         }
     }
 
@@ -88,7 +81,9 @@ public class StudentManagement {
 
         studentManager.add(myStudent);
         studentManager.add(studentNoParam);
+        studentManager.add(studentNoParam);
         studentManager.add(studentDefaultGroup);
+        studentManager.add(studentClone);
         studentManager.add(studentClone);
         //check b12
         System.out.println("***check bai 12***");
