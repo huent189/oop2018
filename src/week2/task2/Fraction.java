@@ -57,4 +57,8 @@ public class Fraction {
         numberator = numberator / ucln;
         denominator = denominator / ucln;
     }
+    public void print(){
+        System.out.println(numberator + "/" + denominator);
+    }
+
 }

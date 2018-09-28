@@ -56,7 +56,7 @@ class Student{
         System.out.println("Tong so tin chi: " + totalCredits);
     }
 
-    public boolean isGraduate(){
+    public boolean canGraduate(){
         return (totalCredits >= MAX_CREDIT && gpa > 2.0);
     }
 }
