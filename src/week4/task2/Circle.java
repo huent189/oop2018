@@ -1,7 +1,7 @@
 package week4.task2;
 
 public class Circle extends Shape {
-    private static final double PI = 3.14;
+    private static final double PI = 3.1416;
     private double radius;
     public Circle(){
         radius = 1.0;

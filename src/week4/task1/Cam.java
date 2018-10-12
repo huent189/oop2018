@@ -2,7 +2,7 @@ package week4.task1;
 
 public class Cam extends HoaQua {
     private int soMui;
-    private boolean acid;
+    private int doChua;
 
     public int getSoMui() {
         return soMui;
@@ -12,18 +12,20 @@ public class Cam extends HoaQua {
         this.soMui = soMui;
     }
 
-    public boolean isAcid() {
-        return acid;
+    public int getDoChua() {
+        return doChua;
     }
 
-    public void setAcid(boolean acid) {
-        this.acid = acid;
+    public void setDoChua(int doChua) {
+        this.doChua = doChua;
     }
 
-    @Override
-    public void info() {
-        System.out.println("Loai hoa qua: Cam");
-        super.info();
-        System.out.println("vi " + (acid ? "chua" : "khong chua"));
+    public boolean soSanhSoMui(Cam o){
+        return (soMui < o.soMui);
     }
+
+    public boolean soSanhDoChua(Cam o){
+        return (doChua < o.doChua);
+    }
+
 }

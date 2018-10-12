@@ -1,16 +1,16 @@
 package week4.task1;
 
 public class HoaQua {
-    private String nguonGoc;
+    private String ngayNhap;
     private int soLuong;
     private int giaMua;
 
-    public String getNguonGoc() {
-        return nguonGoc;
+    public String getNgayNhap() {
+        return ngayNhap;
     }
 
-    public void setNguonGoc(String nguonGoc) {
-        this.nguonGoc = nguonGoc;
+    public void setNgayNhap(String ngayNhap) {
+        this.ngayNhap = ngayNhap;
     }
 
     public int getSoLuong() {
@@ -38,6 +38,6 @@ public class HoaQua {
     }
 
     public void info(){
-        System.out.println("Nguon goc " + nguonGoc +"\nSo luong" + soLuong);
+        System.out.println("Ngay nhap " + ngayNhap +"\nSo luong" + soLuong);
     }
 }

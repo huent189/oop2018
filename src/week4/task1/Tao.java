@@ -1,14 +1,15 @@
 package week4.task1;
 
 public class Tao extends HoaQua {
-    private boolean sweet;
+    private int doNgot;
     private String loaiTao;
-    public boolean isSweet() {
-        return sweet;
+
+    public int getDoNgot() {
+        return doNgot;
     }
 
-    public void setSweet(boolean sweet) {
-        this.sweet = sweet;
+    public void setDoNgot(int doNgot) {
+        this.doNgot = doNgot;
     }
 
     public String getLoaiTao() {
@@ -19,20 +20,11 @@ public class Tao extends HoaQua {
         this.loaiTao = loaiTao;
     }
 
-    /**
-     *
-     * @return true neu co the ngam ruou duoc, false neu khong
-     */
-    public boolean coTheNgamRuou(){
-        if(loaiTao == "tao meo"){
-            return true;
-        }
-        return false;
+    public boolean cungLoai(Tao o){
+        return (loaiTao.equals(o.loaiTao));
     }
-    @Override
-    public void info() {
-        System.out.println("Loai hoa qua: Tao");
-        super.info();
-        System.out.println("Loai tao: " + loaiTao);
+
+    public boolean soSanhDoNgot(Tao o){
+        return (doNgot < o.doNgot);
     }
 }
