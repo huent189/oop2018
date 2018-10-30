@@ -20,6 +20,13 @@ public abstract class Shape {
         this.filled = filled;
     }
 
+    public void fillColor(String color){
+        this.color = color;
+        filled = true;
+    }
     public abstract void move(Point newPosition);
 
+    public abstract boolean isSimilar(Shape other);
+
+    public abstract boolean isSameType(Shape other);
 }

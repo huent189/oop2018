@@ -9,7 +9,7 @@ public class Main {
         System.out.println("Number of layer: ");
         int numOfLayer = scanner.nextInt();
         for (int i = 0; i < numOfLayer; i++){
-            System.out.println("Number of shape: ");
+            System.out.println("Layer " + i + "\nNumber of shape: ");
             int numOfShape = scanner.nextInt();
             Layer layer = new Layer();
             for (int j = 0; j < numOfShape; j++){
@@ -33,9 +33,15 @@ public class Main {
             }
             diagram.addLayer(layer);
         }
-        diagram.removeCircle();
-        diagram.getLayers().get(0).removeAllTriangle();
         for (int i = 0; i < diagram.getLayers().size(); i++){
+            System.out.println("Layer " + i);
+            for (int j = 0; j < diagram.getLayers().get(i).getShapes().size(); j++){
+                System.out.println(diagram.getLayers().get(i).getShapes().get(j).getClass());
+            }
+        }
+        diagram.removeCircle();
+        for (int i = 0; i < diagram.getLayers().size(); i++){
+            System.out.println("Layer " + i);
             for (int j = 0; j < diagram.getLayers().get(i).getShapes().size(); j++){
                 System.out.println(diagram.getLayers().get(i).getShapes().get(j).getClass());
             }

@@ -24,4 +24,19 @@ public class Triangle extends Shape{
         point3.setX(point3.getX() + shiftX);
         point3.setY(point3.getY() + shiftY);
     }
+
+    @Override
+    public boolean isSimilar(Shape other) {
+        if(other instanceof Triangle){
+            Triangle otherTriangle = (Triangle) other;
+            return (point1.isSame(otherTriangle.point1) && point2.isSame(otherTriangle.point2) &&
+                    point3.isSame(otherTriangle.point3));
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isSameType(Shape other) {
+        return (other instanceof Triangle);
+    }
 }

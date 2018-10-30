@@ -24,4 +24,8 @@ public class Point {
     public void setY(double y) {
         this.y = y;
     }
+
+    public boolean isSame(Point other){
+        return (x == other.x && y == other.y);
+    }
 }

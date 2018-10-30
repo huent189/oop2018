@@ -26,4 +26,9 @@ public class Square extends Rectangle {
         super.setHeight(side);
         super.setWidth(side);
     }
+
+    @Override
+    public boolean isSameType(Shape other) {
+        return (other instanceof Square);
+    }
 }

@@ -39,4 +39,19 @@ public class Rectangle extends Shape {
     public void move(Point newPosition) {
         upperLeft = newPosition;
     }
+
+    @Override
+    public boolean isSimilar(Shape other) {
+        if(other instanceof Rectangle){
+            return (upperLeft.isSame(((Rectangle) other).upperLeft) &&
+                    width == ((Rectangle) other).width &&
+                    height == ((Rectangle) other).height);
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isSameType(Shape other) {
+        return (other instanceof Rectangle);
+    }
 }

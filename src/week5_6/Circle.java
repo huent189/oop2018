@@ -29,4 +29,17 @@ public class Circle extends Shape{
     public void move(Point newPosition) {
         center = newPosition;
     }
+
+    @Override
+    public boolean isSimilar(Shape other) {
+        if(other instanceof Circle){
+            return (center.isSame(((Circle) other).center) && radius == ((Circle) other).radius);
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isSameType(Shape other) {
+        return (other instanceof  Circle);
+    }
 }
