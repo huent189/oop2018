@@ -10,8 +10,8 @@ public class Utils {
         try {
             Scanner scanner = new Scanner(file);
             String content ="";
-            while (scanner.hasNext()){
-                content += scanner.next();
+            while (scanner.hasNextLine()){
+                content += scanner.nextLine() + "\n";
             }
             return content;
         } catch (FileNotFoundException e) {
@@ -38,12 +38,16 @@ public class Utils {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
+            if(bufferedWriter != null){
+                try {
+                    bufferedWriter.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
             if(fileWriter != null){
                 try {
                     fileWriter.close();
-                    if(bufferedWriter != null){
-                        bufferedWriter.close();
-                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -82,5 +86,10 @@ public class Utils {
             return file;
         }
         return null;
+    }
+
+    public static void main(String[] args){
+        System.out.println(readContentFromFile("C:\\Users\\HUE NGUYEN\\Desktop\\test1.txt"));
+        appendToFile("test thử nào", "C:\\Users\\HUE NGUYEN\\Desktop\\test1.txt");
     }
 }
